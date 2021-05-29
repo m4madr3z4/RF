@@ -72,15 +72,15 @@
       },
       "MEGA_API_KEY": {
         "description": "To authenticate Mega.",
-        "required": false
+        "required": true
       },
       "MEGA_EMAIL_ID": {
         "description": "Mega Email.",
-        "required": false
+        "required": true
       },
       "MEGA_PASSWORD": {
         "description": "Mega Password.",
-        "required": false
+        "required": true
       }
     }
 }
