@@ -44,7 +44,7 @@ def stats(update, context):
 def start(update, context):
     start_string = f'''
 🤖 This Is a Bot Which Can Mirror All Your Links To Google Drive!
-\n\n🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>
+🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>
 ✍🏾 Type /{BotCommands.HelpCommand} To Get a List Of Available Commands
 '''
     sendMessage(start_string, context.bot, update)
