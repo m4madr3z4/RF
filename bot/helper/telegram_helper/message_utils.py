@@ -70,9 +70,9 @@ def update_all_messages():
     used = get_readable_file_size(used)
     free = get_readable_file_size(free)
     msg = get_readable_message()
-    msg += f"<b>🖥️CPU:</b> {psutil.cpu_percent()}%" \
-           f" <b>📀DISK:</b> {psutil.disk_usage('/').percent}%" \
-           f" <b>📝RAM:</b> {psutil.virtual_memory().percent}%\n" \
+    msg += f"<b>🖥 𝗖𝗣𝗨 :</b> {psutil.cpu_percent()}%" \
+           f" <b>📀 𝗗𝗜𝗖𝗞 :</b> {psutil.disk_usage('/').percent}%" \
+           f" <b>📈 𝗥𝗔𝗠 :</b> {psutil.virtual_memory().percent}%\n" \
             f"✥═══════════════════════════✥"
     with download_dict_lock:
         dlspeed_bytes = 0
@@ -109,9 +109,9 @@ def sendStatusMessage(msg, bot):
     used = get_readable_file_size(used)
     free = get_readable_file_size(free)
     progress = get_readable_message()
-    progress += f"\n<b>🖥️CPU:</b> {psutil.cpu_percent()}%" \
-           f" <b>📀DISK:</b> {psutil.disk_usage('/').percent}%" \
-           f" <b>📝RAM:</b> {psutil.virtual_memory().percent}%\n" \
+    progress += f"\n<b>🖥 𝗖𝗣𝗨 : </b> {psutil.cpu_percent()}%" \
+           f" <b>📀 𝗗𝗜𝗖𝗞 :</b> {psutil.disk_usage('/').percent}%" \
+           f" <b>📈 𝗥𝗔𝗠 :</b> {psutil.virtual_memory().percent}%\n" \
             f"✥═══════════════════════════✥"
     with download_dict_lock:
         dlspeed_bytes = 0
@@ -130,7 +130,7 @@ def sendStatusMessage(msg, bot):
                     uldl_bytes += float(speedy.split('M')[0]) * 1048576
         dlspeed = get_readable_file_size(dlspeed_bytes)
         ulspeed = get_readable_file_size(uldl_bytes)
-        progress += f"\n<b>USED:</b> {used} | <b>FREE:</b> {free}\n<b>DL:</b> {dlspeed}ps 🔻 | <b>UL:</b> {ulspeed}ps 🔺\n"
+        progress += f"\n<b>USED:</b> {used} | <b>FREE:</b> {free}\n<b>DL:</b> {dlspeed}ps 📥 | <b>UL:</b> {ulspeed}ps 📤\n"
     with status_reply_dict_lock:
         if msg.message.chat.id in list(status_reply_dict.keys()):
             try:
