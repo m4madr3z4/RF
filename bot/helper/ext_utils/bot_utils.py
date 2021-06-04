@@ -92,15 +92,15 @@ def get_readable_message():
     with download_dict_lock:
         msg = "<b>✥═══════════════════════════✥</b>"
         for download in list(download_dict.values()):
-            msg += f"\n📁 𝗙𝗶𝗹𝗲𝗡𝗮𝗺𝗲: <code>{download.name()}</code>"
-            msg += f"\n<b>Status :</b> <i>{download.status()}</i>"
+            msg += f"\n🗂 𝗙𝗶𝗹𝗲 𝗡𝗮𝗺𝗲 : <code>{download.name()}</code>"
+            msg += f"\n<b>📊 𝗦𝘁𝗮𝘁𝘂𝘀 :</b> <i>{download.status()}</i>"
             if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
                 msg += f"\n<code>{get_progress_bar_string(download)} {download.progress()}</code>"
                 if download.status() == MirrorStatus.STATUS_DOWNLOADING:
-                    msg += f"\n<b>Downloaded :</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>📥 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱 :</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 else:
                     msg += f"\n<b>Uploaded :</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                msg += f"\n<b>🚀 Speed :</b> {download.speed()}, \n<b>⏳ ETA :</b> {download.eta()}"
+                msg += f"\n<b>⚡️ 𝗦𝗽𝗲𝗲𝗱 :</b> {download.speed()}, \n<b>⏳ 𝗘𝗧𝗔 :</b> {download.eta()}"
                 # if hasattr(download, 'is_torrent'):
                 try:
                     msg += f"\n<b>Info :- Seeders:</b> {download.aria_download().num_seeders}" \
@@ -108,7 +108,7 @@ def get_readable_message():
                 except:
                     pass
             if download.status() == MirrorStatus.STATUS_DOWNLOADING:
-                msg += f"\n<b>To Stop 👉</b>: <code> /cancel {download.gid()}</code>"
+                msg += f"\n<b>❌ 𝐓𝐨 𝐒𝐭𝐨𝐩 👉🏾</b>: <code> /cancel {download.gid()}</code>"
             msg += "\n\n"
         return msg
 
