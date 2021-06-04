@@ -152,14 +152,14 @@ class MirrorListener(listeners.MirrorListeners):
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 surl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, link),verify=False).text
-                buttons.buildbutton("☁️ 𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤", surl)
+                buttons.buildbutton("☁️ 𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤 ☁️", surl)
             else:
                 if SHORTENERLINK_API is not None:
                     s = pyshorteners.Shortener(api_key = SHORTENERLINK_API)
                     gshortlink = s.bitly.short(link)
-                    buttons.buildbutton("☁️ 𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤", gshortlink)
+                    buttons.buildbutton("☁️ 𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤 ☁️", gshortlink)
                 else:
-                    buttons.buildbutton("☁️ 𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤", link)
+                    buttons.buildbutton("☁️ 𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤 ☁️", link)
             LOGGER.info(f'Done Uploading {download_dict[self.uid].name()}')
             if INDEX_URL is not None:
                 share_url = requests.utils.requote_uri(f'{INDEX_URL}/{download_dict[self.uid].name()}')
@@ -167,14 +167,14 @@ class MirrorListener(listeners.MirrorListeners):
                     share_url += '/'
                 if SHORTENER is not None and SHORTENER_API is not None:
                     siurl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, share_url),verify=False).text
-                    buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", siurl)
+                    buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤 ⚡️", siurl)
                 else:
                     if SHORTENERLINK_API is not None:
                         s = pyshorteners.Shortener(api_key = SHORTENERLINK_API)
                         ishortlink = s.bitly.short(share_url)
-                        buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", ishortlink)
+                        buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤 ⚡️", ishortlink)
                     else:
-                        buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", share_url)
+                        buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤 ⚡️", share_url)
             if BUTTON_THREE_NAME is not None and BUTTON_THREE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_THREE_NAME}", f"{BUTTON_THREE_URL}")
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
