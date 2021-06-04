@@ -148,7 +148,7 @@ class MirrorListener(listeners.MirrorListeners):
 
     def onUploadComplete(self, link: str, size):
         with download_dict_lock:
-            msg = f'🗂 𝗙𝗶𝗹𝗲 𝗡𝗮𝗺𝗲 : <code>{download_dict[self.uid].name()}</code>\n\n🗳 𝗧𝗼𝘁𝗮𝗹 𝗦𝗶𝘇𝗲 : <code>{download_dict[self.uid].size()}</code>'
+            msg = f'🗂 𝗙𝗶𝗹𝗲 𝗡𝗮𝗺𝗲 : <code>{download_dict[self.uid].name()}</code>\n\n<b>🗳 𝗧𝗼𝘁𝗮𝗹 𝗦𝗶𝘇𝗲 : </b> <code>{download_dict[self.uid].size()}</code>'
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 surl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, link),verify=False).text
@@ -187,9 +187,9 @@ class MirrorListener(listeners.MirrorListeners):
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
                 if INDEX_URL is not None:
-                    msg += f'\n\n<b>👨🏽‍💻 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗿 : 👉🏾 {uname}\n\n✅ 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐓𝐨 𝐓𝐞𝐚𝐦 𝐃𝐫𝐢𝐯𝐞. \n\n⛔️ 𝐃𝐨 𝐍𝐨𝐭 𝐒𝐡𝐚𝐫𝐞 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤. \n\n🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
+                    msg += f'\n\n<b>👨🏽‍💻 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗿 : </b>👉🏾 {uname}\n\n✅ 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐓𝐨 𝐓𝐞𝐚𝐦 𝐃𝐫𝐢𝐯𝐞. \n\n⛔️ 𝐃𝐨 𝐍𝐨𝐭 𝐒𝐡𝐚𝐫𝐞 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤. \n\n🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
                 if INDEX_URL is None:
-                    msg += f'\n\n<b>👨🏽‍💻 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗿 : 👉🏾 {uname}\n\n✅ 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐓𝐨 𝐓𝐞𝐚𝐦 𝐃𝐫𝐢𝐯𝐞.\n\n🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
+                    msg += f'\n\n<b>👨🏽‍💻 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗿 : </b>👉🏾 {uname}\n\n✅ 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐓𝐨 𝐓𝐞𝐚𝐦 𝐃𝐫𝐢𝐯𝐞.\n\n🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
 
             if SHORTENER_API is not None and INDEX_URL is not None:
                 LOGGER.info("SHORTENER_API found!")
