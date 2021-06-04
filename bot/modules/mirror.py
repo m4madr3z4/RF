@@ -148,7 +148,7 @@ class MirrorListener(listeners.MirrorListeners):
 
     def onUploadComplete(self, link: str, size):
         with download_dict_lock:
-            msg = f'🗂 𝗙𝗶𝗹𝗲 𝗡𝗮𝗺𝗲 : <code>{download_dict[self.uid].name()}</code>\n\n<b>🗳 𝐓𝐨𝐭𝐚𝐥 𝐒𝐢𝐳𝐞 : </b> <code>{download_dict[self.uid].size()}</code>'
+            msg = f'📁 𝗙𝗶𝗹𝗲𝗡𝗮𝗺𝗲 : <code>{download_dict[self.uid].name()}</code>\n\n<b>📀 Total Size : </b> <code>{download_dict[self.uid].size()}</code>'
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 surl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, link),verify=False).text
@@ -167,14 +167,14 @@ class MirrorListener(listeners.MirrorListeners):
                     share_url += '/'
                 if SHORTENER is not None and SHORTENER_API is not None:
                     siurl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, share_url),verify=False).text
-                    buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", siurl)
+                    buttons.buildbutton("💡 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", siurl)
                 else:
                     if SHORTENERLINK_API is not None:
                         s = pyshorteners.Shortener(api_key = SHORTENERLINK_API)
                         ishortlink = s.bitly.short(share_url)
-                        buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", ishortlink)
+                        buttons.buildbutton("💡 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", ishortlink)
                     else:
-                        buttons.buildbutton("⚡️ 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", share_url)
+                        buttons.buildbutton("💡 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", share_url)
             if BUTTON_THREE_NAME is not None and BUTTON_THREE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_THREE_NAME}", f"{BUTTON_THREE_URL}")
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
@@ -187,9 +187,9 @@ class MirrorListener(listeners.MirrorListeners):
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
                 if INDEX_URL is not None:
-                    msg += f'\n\n<b>👨🏽‍💻 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 : </b>👉🏾 {uname}\n\n✅ 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗧𝗼 𝗧𝗲𝗮𝗺 𝗗𝗿𝗶𝘃𝗲. \n\n⛔️ 𝐃𝐨 𝐍𝐨𝐭 𝐒𝐡𝐚𝐫𝐞 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤 \n\n🛡𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
+                    msg += f'\n\n<b>👤 Uploader: </b>👉 {uname}\n\n▫️#Uploaded To Team Drive ⚡️ \n\n⛔ 𝘿𝙤 𝙣𝙤𝙩 𝙨𝙝𝙖𝙧𝙚 𝙄𝙣𝙙𝙚𝙭 𝙇𝙞𝙣𝙠🙂 \n\n🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆: <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
                 if INDEX_URL is None:
-                    msg += f'\n\n<b>👨🏽‍💻 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 : </b>👉🏾 {uname}\n\n✅ 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗧𝗼 𝗧𝗲𝗮𝗺 𝗗𝗿𝗶𝘃𝗲.\n\n🛡𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
+                    msg += f'\n\n<b>👤 Uploader: </b>👉 {uname}\n\n▫️#Uploaded To Team Drive ⚡️\n\n🛡️ 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆: <a href="https://t.me/MMd_6"><b>M4MAdd</b></a>'
 
             if SHORTENER_API is not None and INDEX_URL is not None:
                 LOGGER.info("SHORTENER_API found!")
@@ -208,10 +208,10 @@ class MirrorListener(listeners.MirrorListeners):
                 msg += f'\n\n𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤: <code>{ishortlink}</code>\n\n𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤: <code>{gshortlink}</code>'
             
             if SHORTENER_API is None and SHORTENERLINK_API is None and INDEX_URL is not None:
-                msg += f'\n\n'
+                msg += f'\n\n🙌𝙉𝙊 𝙎𝙃𝙊𝙍𝙏𝙀𝙉𝙀𝙍 🎉🎉'
 
             if SHORTENER_API is None and INDEX_URL is None and SHORTENERLINK_API is None:
-                msg += f'\n\n'
+                msg += f'\n\n🙌𝙉𝙊 𝙎𝙃𝙊𝙍𝙏𝙀𝙉𝙀𝙍 🎉🎉'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
