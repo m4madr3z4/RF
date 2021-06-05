@@ -555,9 +555,9 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
-                                 title = '𝗧𝗼𝗿𝗿𝗲𝗻𝘁 𝗗𝗿𝗶𝘃𝗲',
-                                 author_name='👲 𝗨𝗽𝗹𝗼𝗮𝗱 𝗕𝘆',
-                                 author_url='https://t.me/kjuned007',
+                                 title = '𝗗𝗿𝗶𝘃𝗲 𝗠𝟰𝗠𝗔𝗱𝗱',
+                                 author_name='👨🏽‍💻 𝗨𝗽𝗹𝗼𝗮𝗱 𝗕𝘆 𝗠𝟰𝗠𝗔𝗱𝗱',
+                                 author_url='https://t.me/M4madd',
                                  html_content=content)
         return
 
@@ -591,31 +591,31 @@ class GoogleDriveHelper:
                     msg += f"⁍<code>{file.get('name')}<br>(folder📁)</code><br>"
                     if SHORTENER is not None and SHORTENER_API is not None:
                         sfurl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, furl),verify=False).text
-                        msg += f"<b><a href={sfurl}>🏷️ DRIVE LINK</a></b>"
+                        msg += f"<b><a href={sfurl}>☁️ DRIVE LINK</a></b>"
                     else:
-                        msg += f"<b><a href={furl}>🏷️ DRIVE LINK</a></b>"
+                        msg += f"<b><a href={furl}>☁️ DRIVE LINK</a></b>"
                     if INDEX_URL is not None:
                         url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}/')
                         if SHORTENER is not None and SHORTENER_API is not None:
                             siurl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, url),verify=False).text
-                            msg += f' <b>| <a href="{siurl}">💡 INDEX LINK</a></b>'
+                            msg += f' <b>| <a href="{siurl}">⚡️ INDEX LINK</a></b>'
                         else:
-                            msg += f' <b>| <a href="{url}">💡 INDEX LINK</a></b>'
+                            msg += f' <b>| <a href="{url}">⚡️ INDEX LINK</a></b>'
                 else:
                     furl = f"https://drive.google.com/uc?id={file.get('id')}&export=download"
-                    msg += f"⁍<code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size')))})📄</code><br>"
+                    msg += f"⁍<code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size')))})🗳</code><br>"
                     if SHORTENER is not None and SHORTENER_API is not None:
                         sfurl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, furl),verify=False).text
-                        msg += f"<b><a href={sfurl}>🏷️ DRIVE LINK</a></b>"
+                        msg += f"<b><a href={sfurl}>☁️ DRIVE LINK</a></b>"
                     else:
-                        msg += f"<b><a href={furl}>🏷️ DRIVE LINK</a></b>"
+                        msg += f"<b><a href={furl}>☁️ DRIVE LINK</a></b>"
                     if INDEX_URL is not None:
                         url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}')
                         if SHORTENER is not None and SHORTENER_API is not None:
                             siurl = requests.get(SHORTURL_STRUCTURE.format(SHORTENER, SHORTENER_API, url),verify=False).text
-                            msg += f' <b>| <a href="{siurl}">💡 INDEX LINK</a></b>'
+                            msg += f' <b>| <a href="{siurl}">⚡️ INDEX LINK</a></b>'
                         else:
-                            msg += f' <b>| <a href="{url}">💡 INDEX LINK</a></b>'
+                            msg += f' <b>| <a href="{url}">⚡️ INDEX LINK</a></b>'
                 msg += '<br><br>'
                 content_count += 1
                 if content_count == TELEGRAPHLIMIT :
@@ -631,9 +631,9 @@ class GoogleDriveHelper:
 
             for content in self.telegraph_content :
                 self.path.append(Telegraph(access_token=telegraph_token).create_page(
-                                                        title = '𝗧𝗼𝗿𝗿𝗲𝗻𝘁 𝗗𝗿𝗶𝘃𝗲',
-                                                        author_name='👲 𝗨𝗽𝗹𝗼𝗮𝗱 𝗕𝘆',
-                                                        author_url='https://t.me/kjuned007',
+                                                        title = '𝗗𝗿𝗶𝘃𝗲 𝗠𝟰𝗠𝗔𝗱𝗱',
+                                                        author_name='👨🏽‍💻 𝗨𝗽𝗹𝗼𝗮𝗱 𝗕𝘆 𝗠𝟰𝗠𝗔𝗱𝗱',
+                                                        author_url='https://t.me/M4madd',
                                                         html_content=content
                                                         )['path'])
 
