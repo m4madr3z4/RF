@@ -208,10 +208,10 @@ class MirrorListener(listeners.MirrorListeners):
                 msg += f'\n\n𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤: <code>{ishortlink}</code>\n\n𝐃𝐫𝐢𝐯𝐞 𝐋𝐢𝐧𝐤: <code>{gshortlink}</code>'
             
             if SHORTENER_API is None and SHORTENERLINK_API is None and INDEX_URL is not None:
-                msg += f'\n\n⚡️𝐑𝐚𝐲𝐞𝐠𝐚𝐧 𝐅𝐢𝐥𝐦⚡️'
+                msg += f'\n\n⚡️🔗 𝐇𝐢𝐠𝐡 𝐒𝐩𝐞𝐞𝐝 𝐋𝐢𝐧𝐤.'
 
             if SHORTENER_API is None and INDEX_URL is None and SHORTENERLINK_API is None:
-                msg += f'\n\n⚡️𝐑𝐚𝐲𝐞𝐠𝐚𝐧 𝐅𝐢𝐥𝐦⚡️'
+                msg += f'\n\n🔗 𝐇𝐢𝐠𝐡 𝐒𝐩𝐞𝐞𝐝 𝐋𝐢𝐧𝐤.'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
